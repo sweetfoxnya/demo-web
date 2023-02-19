@@ -1,14 +1,22 @@
 package com.example.demoweb.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
-
+@Entity
 public class Post {
     private String text;
     private Integer likes;
     private Date creationDate;
-    private Integer id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Post(Integer id,String text, Date date) {
+    public Post() {
+
+    }
+    public Post(Long id,String text, Date date) {
         this.id = id;
         this.text = text;
         this.likes = 0;
@@ -20,11 +28,12 @@ public class Post {
     public Integer getLikes(){ return likes; }
 
     public Date getCreationDate(){ return creationDate; }
-    public Integer getId(){ return id; }
+    public Long getId(){ return id; }
 
 
     public void setText(String text) {this.text = text;}
     public void setLikes(Integer likes) {this.likes = likes;}
     public void setCreationDate(Date date) {this.creationDate = date;}
+    public void setId(long id) { this.id = id;}
 
 }
