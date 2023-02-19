@@ -10,17 +10,18 @@ import java.util.List;
 @Service
 public class PostService {
 
+    List<Post> posts = new ArrayList<>() {{
+        add(new Post(0,"Котики - это круто", new Date()));
+        add(new Post(1,"Собачки - это круто", new Date()));
+        add(new Post(2,"Птички - это круто",  new Date()));
+    }};
+
     public List<Post> listAllPosts() {
 
-        List<Post> list = new ArrayList<>();
+        return posts;
+    }
+    public void create(String text) {
 
-        Post post1 = new Post("Котики - это круто",0, new Date());
-        Post post2 = new Post("Собачки - это круто",0, new Date());
-        Post post3 = new Post("Птички - это круто",0, new Date());
-
-        list.add(post1);
-        list.add(post2);
-        list.add(post3);
-        return list;
+        posts.add(new Post(posts.size(),text,  new Date()));
     }
 }
